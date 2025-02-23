@@ -74,3 +74,15 @@ def deletepost(request, id):
     post.delete()
     messages.success(request, 'Post Deleted Successful.')
     return redirect('blog')
+
+def search_posts(request):
+    query = request.GET.get("q")
+    if query:
+        # Using Q objects to search in both title and body with OR logic
+        posts = Post.objects.filter(
+            Q(title__icontains=query) | Q(content__icontains=query)
+        ).distinct()
+    else:
+        posts = Post.objects.all()  # Return all posts if no query
+
+    return render(request, 'blog/search_results.html', {'posts': posts})

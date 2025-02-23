@@ -2,27 +2,8 @@
 <!-- Page Sidebar Start -->
 <div class="page--sidebar col-md-3">
     
-    
-    <div class="widget">
+    <!-- <div class="widget">
         <div class="post--footer clearfix">
-            <!-- Social Widget Start -->
-            <div class="tags--widget pull-left">
-              <ul>
-                <li><a href="{% url 'createpost' %}"><i class="fa fa-plus" style="margin-right:5px"></i>Create Post</a></li>
-                <li><a href="{% url 'blog' %}"><i class="fa fa-list fa-lg" style="margin-right:5px"></i>All Post</a></li>
-              </ul>
-            </div>
-            <!-- Social Widget End -->
-          </div>
-    </div>
-
-
-
-    <div class="widget">
-        <div class="post--footer clearfix">
-            <!-- Social Widget Start -->
-                     
-            <!-- Social Widget Start -->
             <div class="social--widget pull-right">
               <ul>
                 <li>
@@ -37,21 +18,19 @@
           
               </ul>
             </div>
-            <!-- Social Widget End -->
+            
           </div>
-    </div>
-
-
-
+    </div> -->
 
 
     <!-- Widget Start -->
     <div class="widget">
         <!-- Search Widget Start -->
         <div class="search--widget" data-form-validation="true">
-            <form action="#">
+            <form action="{% url 'search_posts' %}" method="get">
+                
                 <div class="input-group">
-                    <input type="text" name="search" class="form-control" placeholder="I’m Looking For..." required />
+                    <input type="text" name="q" class="form-control" placeholder="I’m Looking For..." required />
 
                     <div class="input-group-addon">
                         <button type="submit"><i class="fa fa-search"></i></button>
@@ -62,6 +41,20 @@
         <!-- Search Widget End -->
     </div>
     <!-- Widget End -->
+
+    <div class="widget">
+        <div class="post--footer clearfix">
+            <!-- Social Widget Start -->
+            <div class="tags--widget pull-left">
+              <ul>
+                <li><a href="{% url 'createpost' %}"><i class="fa fa-plus" style="margin-right:5px"></i>Create Post</a></li>
+                <li><a href="{% url 'blog' %}"><i class="fa fa-list fa-lg" style="margin-right:5px"></i>All Post</a></li>
+              </ul>
+            </div>
+            <!-- Social Widget End -->
+          </div>
+    </div>
+
 
     <!-- Widget Start -->
     <div class="widget">

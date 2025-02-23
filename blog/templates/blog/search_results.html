@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+
+{% block title %} {{block.super}} | Post {% endblock%}
+
+{% block content %}
+{% load static %}
+
+<div class="container mt-100">
+
+    <form action="{% url 'search_posts' %}" method="get">
+        
+        <input type="text" name="q" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if posts %}
+        <h2>Search Results for "{{ request.GET.q }}"</h2>
+        <ul>
+            {% for post in posts %}
+                <li><a href="{% url 'blogdetails' post.pk %}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts found.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
